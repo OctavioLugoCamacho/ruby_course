@@ -17,10 +17,17 @@ class Game
     @players.each do |player|
       puts player
     end
+
     @players.each do |player|
-      player.blam
-      player.w00t
-      player.w00t
+      die = Die.new
+      number_rolled = die.roll
+      if number_rolled < 3
+        player.blam
+      elsif number_rolled < 5
+        puts "#{player.name} was skipped."
+      else
+        player.w00t
+      end
       puts player
     end
   end
