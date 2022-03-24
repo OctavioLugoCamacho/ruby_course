@@ -1,4 +1,7 @@
 class Movie
+  attr_reader :therank
+  attr_accessor :title
+
   def initialize(title, rank = 0)
     @title = title.capitalize
     @therank = rank

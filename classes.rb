@@ -18,6 +18,7 @@ class Movie
 end
 
 movie1 = Movie.new("star wars", 10)
+puts movie1.title
 movie1.thumbs_up
 puts movie1
 
