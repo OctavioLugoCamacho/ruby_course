@@ -23,6 +23,10 @@ class Movie
     @therank -= 1
   end
 
+  def <=>(other_movie)
+    other_movie.therank <=> @therank
+  end
+
   def to_s
     "#{@title} has a rank of #{@therank} (#{status})"
   end
