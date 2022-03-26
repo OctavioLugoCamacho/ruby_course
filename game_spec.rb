@@ -27,4 +27,12 @@ describe Game do
     @game.play(2)
     @player.health.should == @initial_health - (10 * 2)
   end
+
+  it "assigns a treasure for points during a player's turn" do
+    game = Game.new("Knuckleheads")
+    player = Player.new("moe")
+    game.add_player(player)
+    game.play(1)
+    player.points.should_not be_zero
+  end
 end
