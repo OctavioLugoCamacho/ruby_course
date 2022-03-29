@@ -1,7 +1,9 @@
 require_relative 'game'
 require_relative 'treasure_trove'
+require_relative 'playable'
 
 class Player
+  include Playable
   attr_accessor :name
   attr_reader :health
 
@@ -32,26 +34,12 @@ class Player
     @found_treasures.values.reduce(0, :+)
   end
 
-  def strong?
-    @health > 100
-  end
-
   def <=>(other)
     other.score <=> score
   end
 
   def score
     @health + points
-  end
-
-  def blam
-    @health -= 10
-    puts "#{@name} got blammed!"
-  end
-
-  def w00t
-    @health += 15
-    puts "#{@name} got w00ted!"
   end
 
   def to_s
