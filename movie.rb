@@ -1,5 +1,8 @@
+require_relative 'rankable'
+
 class Movie
-  attr_reader :therank
+  include Rankable
+  attr_accessor :therank
   attr_accessor :title
 
   def initialize(title, rank = 0)
@@ -32,26 +35,6 @@ class Movie
     @snack_carbs[snack.name] += snack.carbs
     puts "#{title} led to #{snack.carbs} #{snack.name} being consumed"
     puts "#{title}'s snacks: #{@snack_carbs}"
-  end
-
-  def hit?
-    @therank >= 10
-  end
-
-  def status
-    hit? ? "Hit" : "Flop"
-  end
-
-  def thumbs_up
-    @therank += 1
-  end
-
-  def thumbs_down
-    @therank -= 1
-  end
-
-  def <=>(other_movie)
-    other_movie.therank <=> @therank
   end
 
   def to_s
