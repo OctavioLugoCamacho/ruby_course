@@ -1,4 +1,4 @@
-require_relative 'movie'
+require 'separate_files/movie'
 
 describe Movie do
   before do

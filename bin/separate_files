@@ -1,13 +1,16 @@
-require_relative 'movie'
-require_relative 'movie3d'
-require_relative 'playlist'
+#!/usr/bin/env ruby
+
+require_relative '../lib/separate_files/movie'
+require_relative '../lib/separate_files/movie3d'
+require_relative '../lib/separate_files/playlist'
 
 movie1 = Movie.new("star wars", 10)
 movie2 = Movie.new("batman", 9)
 movie3 = Movie.new("avengers")
 
-playlist1 = Playlist.new("Octavio")
-playlist1.load(ARGV.shift || "movies.csv")
+playlist1 = Separate_files::Playlist.new("Octavio")
+defaultfile = File.join(File.dirname(__FILE__), 'movies.csv')
+playlist1.load(ARGV.shift || defaultfile)
 movie3d = Movie3D.new('revenge of the sith', 5, 20)
 playlist1.add_movie(movie3d)
 
